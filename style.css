@@ -3,6 +3,7 @@
     --secondary: #9A9A9A;
     --accent: #C4C4C4;
     --gray: #C4C4C4;
+    --dark-gray: #A0A0A0;
     --text: rgba(0, 0, 0, 0.7);
 }
 
@@ -26,12 +27,14 @@ body {
 
 /* Not a real logo */
 .navbar .logo {
-    height: 100%;
+    /* height: 100%; */
+    height: 80px;
     line-height: 80px;
     font-size: 28px;
 }
 
 .navbar .options {
+    height: 80px;
     display: flex;
     justify-content: flex-end;
     margin: 0;
@@ -40,9 +43,45 @@ body {
     font-size: 24px;
 }
 
+.navbar .menu-button .open{
+    display: block;
+}
+
+.navbar .menu-button .close{
+    display: none;
+}
+
+.navbar .menu-button.close .open{
+    display: none;
+}
+
+.navbar .menu-button.close .close{
+    display: block;
+}
+
 .navbar .options li {
     height: 100%;
     width: 144px;
+}
+
+.navbar .mobile-menu{
+    display: none;
+    list-style-type: none;
+    padding: 0;
+    grid-column:  1 /span 2;
+
+    flex-direction: column;
+    row-gap: 12px;
+}
+
+.navbar .mobile-menu.show{
+    display: flex;
+}
+
+.navbar .mobile-menu .option-link{
+    text-decoration: none;
+    color: var(--text);
+    font-size: 24px;
 }
 
 .navbar .options .option-link {
@@ -143,6 +182,23 @@ body {
         grid-template-columns: repeat(1, 1fr);
     }
     .options li{
+        display: none;
+    }
+    .options .menu-button{
+        font-size: 36px;
+        background-color: var(--dark-gray);
+        border-style: none;
+
+    }
+    .options .menu-button:hover{
+        font-size: 36px;
+        background-color: var(--dark-gray);
+        cursor: pointer;
+    }
+}
+
+@media screen and (min-width: 640px){
+    .navbar .mobile-menu.show{
         display: none;
     }
 }
